@@ -28,7 +28,7 @@ flee = Select(title="Flee", value="All", options=["All"] + data.flee.dropna().un
 
 
 
-def select_data():
+def update():
     data = load_data()
 
     # filter data based on controls
@@ -51,12 +51,14 @@ def select_data():
 
 
 source = ColumnDataSource(data=dict(states=[], counts=[]))
-select_data()
+update()
 
 
 
 
 controls = [year, age, manner_of_death, armed, gender, race, threat_level, flee]
+for control in controls:
+    control.on_change('value', lambda attr, old, new: update())
 sizing_mode = 'fixed'  # 'scale_width' also looks nice with this example
 inputs = widgetbox(*controls, sizing_mode=sizing_mode)
 
