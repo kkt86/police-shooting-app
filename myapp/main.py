@@ -1,12 +1,11 @@
-from os.path import dirname, join
 import pandas as pd
 
 from bokeh.io import curdoc
 from bokeh.layouts import layout, widgetbox
-from bokeh.models import ColumnDataSource, Div
-from bokeh.models.widgets import RangeSlider, MultiSelect, Select
+from bokeh.models import ColumnDataSource
+from bokeh.models.widgets import RangeSlider, Select
 from bokeh.plotting import figure
-from bokeh.transform import factor_cmap
+
 
 def load_data():
     data = pd.read_csv("data/PoliceKillingsUS.csv", encoding="ISO-8859-1")
