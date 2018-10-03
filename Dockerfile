@@ -22,5 +22,5 @@ COPY data/* /opt/app/data/
 COPY myapp/main.py /opt/app/myapp/
 
 # start bokeh application
-ENTRYPOINT bokeh serve --show myapp/
+CMD ["bokeh", "serve", "--show", "myapp/"]
 
